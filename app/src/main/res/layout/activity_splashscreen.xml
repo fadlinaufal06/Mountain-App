@@ -8,6 +8,18 @@
     tools:context=".ui.splashscreen.SplashScreenActivity">
 
     <ImageView
+        android:layout_width="0dp"
+        android:layout_height="281dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/sky_picture"
+        android:src="@drawable/sky"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="336dp"
         android:layout_height="336dp"
         android:contentDescription="@string/mount_picture"
