@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--color pallete default-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -9,6 +10,23 @@
     <color name="white">#FFFFFFFF</color>
 
 
+    <!--color pallete mountain app-->
+    <color name="white_cloud">#FCFEFF</color>
+    <color name="independence">#45526C</color>
+    <color name="blue_sky">#CBEAFF</color>
+    <color name="pale_cornflower_blue">#A7D4F2</color>
+    <color name="aero">#7EB9E5</color>
+    <color name="aquamarine">#7EF5BA</color>
+    <color name="ocean_green">#40C88D</color>
+    <color name="illuminating_emerald">#2B9F67</color>
+    <color name="indian_red">#D1585A</color>
+    <color name="bittersweet_shimmer">#C54F55</color>
+    <color name="carrot_orange">#DD8B1E</color>
+    <color name="mustard">#FFD258</color>
+
+    
+    
+    <!--color pallete lumo-->
     <color name="onyx">#363541</color>
     <color name="light_coral">#E78884</color>
     <color name="roman_silver">#828091</color>
