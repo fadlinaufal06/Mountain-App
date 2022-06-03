@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="onyx">#363541</color>
+    <color name="light_coral">#E78884</color>
+    <color name="roman_silver">#828091</color>
+    <color name="van_dyke_brown">#613A24</color>
+    <color name="spanish_pink">#F8BCBA</color>
+    <color name="dark_charcoal">#343231</color>
+    <color name="old_silver">#828282</color>
 </resources>

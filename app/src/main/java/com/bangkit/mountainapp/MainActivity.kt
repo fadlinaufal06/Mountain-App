@@ -1,5 +1,6 @@
 package com.bangkit.mountainapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -11,6 +12,8 @@ class MainActivity : AppCompatActivity() {
         // halo gais
 
         // test 123
-        // test lagi 
+        // test lagi
+        //tes liat home activity nya
+        startActivity(Intent(this@MainActivity, HomeActivity::class.java))
     }
 }
