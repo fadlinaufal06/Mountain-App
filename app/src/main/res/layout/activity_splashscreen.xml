@@ -8,24 +8,45 @@
     tools:context=".ui.splashscreen.SplashScreenActivity">
 
     <ImageView
-        android:layout_width="0dp"
-        android:layout_height="281dp"
+        android:id="@+id/view_splashscreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/sky_picture"
-        android:src="@drawable/sky"
+        android:src="@drawable/view_splash"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="336dp"
-        android:layout_height="336dp"
-        android:contentDescription="@string/mount_picture"
-        android:src="@drawable/mount_visualization"
+    <TextView
+        android:id="@+id/name_of_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/redhatdisplay_semibold"
+        android:text="@string/app_name"
+        android:textColor="@color/independence"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39" />
+
+    <TextView
+        android:id="@+id/desc_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/redhatdisplay_regular"
+        android:text="@string/description_app"
+        android:textColor="@color/independence"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/name_of_app"
+        app:layout_constraintStart_toStartOf="@+id/name_of_app"
+        app:layout_constraintTop_toBottomOf="@+id/name_of_app" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
