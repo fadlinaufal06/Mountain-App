@@ -24,7 +24,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/img_moon"
+            android:id="@+id/img_mount"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:contentDescription="@string/mount_icon"
@@ -46,10 +46,10 @@
             android:textColor="@color/van_dyke_brown"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/img_moon"
+            app:layout_constraintEnd_toEndOf="@+id/img_mount"
             app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toStartOf="@+id/img_moon"
-            app:layout_constraintTop_toBottomOf="@+id/img_moon" />
+            app:layout_constraintStart_toStartOf="@+id/img_mount"
+            app:layout_constraintTop_toBottomOf="@+id/img_mount" />
 
         <TextView
             android:id="@+id/tv_desc_app_name"

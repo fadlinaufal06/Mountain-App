@@ -23,7 +23,7 @@ class MyCanvasAuth : View {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        mPaint.color = ResourcesCompat.getColor(resources, R.color.aero, null)
+        mPaint.color = ResourcesCompat.getColor(resources, R.color.pale_cornflower_blue, null)
         val left = -20F
         val top = -20F - this.height.toFloat() / 2
         val right = this.width.toFloat() + 20F
