@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -14,6 +16,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_URL_STORY', '"https://story-api.dicoding.dev/"'
     }
 
     buildTypes {
@@ -28,6 +32,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
     }
     buildFeatures {
         viewBinding true
@@ -50,4 +55,32 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+
+    // ViewModel dan LiveData
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+
+    // Ktx
+    implementation "androidx.activity:activity-ktx:1.4.0"
+
+    // Lifecycle only
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+    // Data Store
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.13.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    // CameraX
+    def camerax_version = "1.1.0-beta03"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
 }
