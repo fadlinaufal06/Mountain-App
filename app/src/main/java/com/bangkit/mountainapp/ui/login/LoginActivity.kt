@@ -21,7 +21,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import com.bangkit.mountainapp.MainActivity
+import com.bangkit.mountainapp.ui.mainactivity.MainActivity
 import com.bangkit.mountainapp.R
 import com.bangkit.mountainapp.data.local.UserPreference
 import com.bangkit.mountainapp.databinding.ActivityLoginBinding

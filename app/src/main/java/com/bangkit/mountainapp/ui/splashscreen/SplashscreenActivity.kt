@@ -7,7 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.bangkit.mountainapp.MainActivity
+import com.bangkit.mountainapp.ui.mainactivity.MainActivity
 import com.bangkit.mountainapp.R
 
 @SuppressLint("CustomSplashScreen")

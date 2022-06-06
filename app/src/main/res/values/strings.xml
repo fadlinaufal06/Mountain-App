@@ -33,4 +33,6 @@
     <string name="continue_btn">continue</string>
     <string name="name">Name</string>
     <string name="mount_icon">Mount Icon</string>
+    <string name="logout_successful">Logout successful!</string>
+
 </resources>

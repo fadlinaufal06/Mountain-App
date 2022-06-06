@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.mountainapp.data.local.UserPreference
 import com.bangkit.mountainapp.ui.login.LoginViewModel
+import com.bangkit.mountainapp.ui.mainactivity.MainViewModel
 
 class ViewModelFactory : ViewModelProvider.NewInstanceFactory {
     private var pref: UserPreference? = null
@@ -24,6 +25,9 @@ class ViewModelFactory : ViewModelProvider.NewInstanceFactory {
 
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 pref?.let { LoginViewModel(it) } as T
+            }
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+                pref?.let { MainViewModel(it) } as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
