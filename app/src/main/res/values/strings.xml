@@ -34,5 +34,6 @@
     <string name="name">Name</string>
     <string name="mount_icon">Mount Icon</string>
     <string name="logout_successful">Logout successful!</string>
+    <string name="already_have_an_account">Already have an account?</string>
 
 </resources>
