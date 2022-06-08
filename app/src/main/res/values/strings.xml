@@ -38,5 +38,6 @@
     <string name="description">description</string>
     <string name="uploaded_on">uploaded at</string>
     <string name="someone_s_story_image">someone feeds</string>
+    <string name="welcoming">Hi %s Welcome to Mountain App</string>
 
 </resources>
