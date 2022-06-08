@@ -55,6 +55,8 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    //Circle Image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // ViewModel dan LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
