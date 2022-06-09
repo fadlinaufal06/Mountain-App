@@ -190,7 +190,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun playAnimation() {
-        ObjectAnimator.ofFloat(binding.imgMoon, View.TRANSLATION_Y, -30f, -5f).apply {
+        ObjectAnimator.ofFloat(binding.imgMount, View.TRANSLATION_Y, -30f, -5f).apply {
             duration = 5000
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.REVERSE
