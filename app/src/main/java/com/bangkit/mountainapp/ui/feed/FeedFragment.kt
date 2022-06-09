@@ -1,4 +1,4 @@
-package com.bangkit.mountainapp.ui.dashboard
+package com.bangkit.mountainapp.ui.feed
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.bangkit.mountainapp.ui.dashboard
+package com.bangkit.mountainapp.ui.feed
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
