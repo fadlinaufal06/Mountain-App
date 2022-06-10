@@ -33,4 +33,7 @@
     <string name="mount_icon">Mount Icon</string>
     <string name="logout_successful">Logout successful!</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="name_mount">Name of Mount</string>
+    <string name="location">Location</string>
+    <string name="data_is_empty">Data is Empty</string>
 </resources>
