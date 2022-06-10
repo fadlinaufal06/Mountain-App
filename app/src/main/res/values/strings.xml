@@ -45,4 +45,9 @@
     <string name="expandable_floating_action_button">floating icon</string>
     <string name="data_story_is_empty">Feeds is Empty</string>
 
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Unggah</string>
+
 </resources>
