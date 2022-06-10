@@ -2,11 +2,9 @@
     <string name="app_name">Mountain App</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_profile">Profile</string>
-    <string name="title_favorite">Favorite</string>
     <string name="title_feeds">Feeds</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_profile">Profile</string>
     <string name="mount_picture">Mount Picture</string>
     <string name="sky_picture">sky picture</string>
     <string name="description_app">your one stop mountain content app</string>
@@ -35,5 +33,4 @@
     <string name="mount_icon">Mount Icon</string>
     <string name="logout_successful">Logout successful!</string>
     <string name="already_have_an_account">Already have an account?</string>
-
 </resources>
