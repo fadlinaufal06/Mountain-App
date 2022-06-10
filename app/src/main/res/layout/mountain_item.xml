@@ -40,7 +40,7 @@
             card_view:layout_constraintTop_toTopOf="@+id/profile_image" />
 
         <ImageView
-            android:id="@+id/img_story_detail"
+            android:id="@+id/img_top_mountain1"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="8dp"
@@ -52,7 +52,7 @@
             tools:src="@drawable/icon_mount" />
 
         <TextView
-            android:id="@+id/tv_date"
+            android:id="@+id/tv_mountain_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -63,7 +63,7 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.052"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/img_story_detail" />
+            card_view:layout_constraintTop_toBottomOf="@+id/img_top_mountain1" />
 
         <TextView
             android:id="@+id/tv_description"
@@ -78,6 +78,6 @@
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_date" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_mountain_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

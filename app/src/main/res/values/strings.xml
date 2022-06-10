@@ -49,5 +49,6 @@
     <string name="camera">Kamera</string>
     <string name="gallery">Galeri</string>
     <string name="upload">Unggah</string>
+    <string name="gambar_header">gambar header</string>
 
 </resources>

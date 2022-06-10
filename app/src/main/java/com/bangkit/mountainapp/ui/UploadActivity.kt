@@ -61,7 +61,6 @@ class UploadActivity : AppCompatActivity() {
             )
         }
         binding.cameraXButton.setOnClickListener { startCameraX() }
-        binding.cameraButton.setOnClickListener { startTakePhoto() }
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.uploadButton.setOnClickListener { uploadImage() }
     }
