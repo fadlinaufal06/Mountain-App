@@ -27,6 +27,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <View
+        android:id="@+id/shadow_view_profile"
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:background="@drawable/toolbar_dropshadow"
@@ -49,14 +50,11 @@
         android:id="@+id/constraintLayout"
         android:layout_width="411dp"
         android:layout_height="112dp"
-        android:layout_marginTop="16dp"
         android:padding="6dp"
-        app:layout_constraintBottom_toTopOf="@+id/logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/shadow_view_profile">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"

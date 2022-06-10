@@ -5,13 +5,27 @@
       <map>
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable-v24/bg_button.xml" value="0.231" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable-v24/bg_button_disable.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable-v24/ic_capture.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable-v24/ic_place_holder.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/bg_lable.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/ic_favorite_black_24.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/ic_image_search_24.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/ic_profile_black_24.xml" value="0.231" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/ic_search_24.xml" value="0.231" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/drawable/toolbar_dropshadow.xml" value="0.1935" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/activity_camera.xml" value="0.231722958529286" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/activity_login.xml" value="0.3625" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/activity_main.xml" value="0.1762917933130699" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/activity_signup.xml" value="0.2975630611372381" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/activity_upload.xml" value="0.231722958529286" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/fragment_favorite.xml" value="0.25" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/fragment_feeds.xml" value="0.358695652173913" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/fragment_home.xml" value="0.1762917933130699" />
-        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/fragment_profile.xml" value="0.1762917933130699" />
+        <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/item_row_list_mount.xml" value="0.14207650273224043" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Fase 2/Mountain App/app/src/main/res/layout/layout_data_empty.xml" value="0.19342105263157894" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Mountain App/app/src/main/res/drawable-v24/bg_button.xml" value="0.232" />
@@ -31,10 +45,7 @@
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Mountain App/app/src/main/res/layout/fragment_feeds.xml" value="0.15220179563916203" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Mountain App/app/src/main/res/layout/fragment_home.xml" value="0.2975630611372381" />
         <entry key="..\:/KULIAH/MBKM/BANGKIT - 2022/5_Capstone/Mountain App/app/src/main/res/layout/fragment_profile.xml" value="0.16" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable-v24/ic_baseline_email_24.xml" value="0.1" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2405" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable-v24/ic_switch_camera.xml" value="0.1" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable/bg_lable.xml" value="0.156" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable/edit_text_background.xml" value="0.205" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2555" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable/ic_favorite_black_24.xml" value="0.2405" />
@@ -42,20 +53,13 @@
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2405" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2405" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable/ic_profile_black_24.xml" value="0.2405" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/drawable/ic_search_24.xml" value="0.2555" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/acivity_feeds.xml" value="0.234375" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/activity_camera.xml" value="0.14945652173913043" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/activity_home.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/activity_main.xml" value="0.24635416666666668" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/activity_upload.xml" value="0.44955044955044954" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.234375" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/fragment_feeds.xml" value="0.234375" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/fragment_home.xml" value="0.234375" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/fragment_notifications.xml" value="0.234375" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/layout_data_empty.xml" value="0.20989583333333334" />
-        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/mountain_item.xml" value="0.1" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/layout/fragment_profile.xml" value="0.234375" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MountainApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24635416666666668" />
       </map>
     </option>

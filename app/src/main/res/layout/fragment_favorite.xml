@@ -29,7 +29,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/shadow_view_fav"
         android:layout_width="match_parent"
         android:layout_height="4dp"
         android:background="@drawable/toolbar_dropshadow"
@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/shadow_view_fav"
         tools:listitem="@layout/item_row_list_mount" />
 
     <ProgressBar
