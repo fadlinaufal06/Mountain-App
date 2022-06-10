@@ -36,4 +36,17 @@
     <string name="name_mount">Name of Mount</string>
     <string name="location">Location</string>
     <string name="data_is_empty">Data is Empty</string>
+    <string name="description">description</string>
+    <string name="uploaded_on">uploaded at</string>
+    <string name="someone_s_story_image">someone feeds</string>
+    <string name="welcoming">Hi %s Welcome to Mountain App</string>
+    <string name="profile_picture_user">profile picture</string>
+    <string name="greeting">Hi %s</string>
+    <string name="greeting2">Stay Healty</string>
+    <string name="expandable_floating_action_button">floating icon</string>
+    <string name="camera_x">CameraX</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="upload">Unggah</string>
+    <string name="gambar_header">gambar header</string>
 </resources>

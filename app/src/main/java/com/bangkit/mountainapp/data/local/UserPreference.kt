@@ -9,6 +9,7 @@ import com.bangkit.mountainapp.model.UserModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
+
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
 
     fun getUser(): Flow<UserModel> {
