@@ -245,6 +245,40 @@ app.delete("/users/:id", (req, res) => {
   });
 });
 
+//Login
+app.post("/login", function (req, res) {
+  let data = {
+    // username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+  };
+  let sql = `SELECT * FROM users WHERE email="${data.email}" AND password="${data.password}"`;
+  let query = connection.query(sql, (err, results) => {
+    if (err) {
+      console.log(sql);
+      console.log("error");
+      res.send({ result: "error" });
+    } else {
+      console.log(sql);
+      // console.log(query._results[0]);
+      if (results.length) {
+        console.log("success");
+        res.send({
+          result: "success",
+          loginResult: data,
+        });
+      } else {
+        console.log("error");
+        res.send({
+          result: "error",
+          message: "User credentials is wrong!",
+        });
+      }
+      // res.redirect("/users");
+    }
+  });
+});
+
 //Users Detail
 app.get("/users_detail", (req, res) => {
   connection.query(
