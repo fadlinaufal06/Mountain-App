@@ -219,6 +219,7 @@ app.post("/users", function (req, res) {
       res.send({ result: "error" });
     } else {
       console.log("success");
+      res.send({ result: "success" });
       res.redirect("/users");
     }
   });
