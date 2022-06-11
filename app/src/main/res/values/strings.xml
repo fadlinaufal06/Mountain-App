@@ -49,4 +49,7 @@
     <string name="gallery">Galeri</string>
     <string name="upload">Unggah</string>
     <string name="gambar_header">gambar header</string>
+    <string name="your_account">Your Account</string>
+    <string name="language">Language</string>
+    <string name="logout">Logout</string>
 </resources>

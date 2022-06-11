@@ -42,9 +42,13 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.logout.setOnClickListener {
+        binding.clickLogout.setOnClickListener {
             viewModel.logout(UserPreference.getInstance(requireActivity().dataStore))
             Toast.makeText(activity, getString(R.string.logout_successful), Toast.LENGTH_SHORT).show()
+        }
+
+        binding.clickYourAccount.setOnClickListener {
+            Toast.makeText(activity, "Masuk ke edit account", Toast.LENGTH_SHORT).show()
         }
     }
 
