@@ -52,6 +52,7 @@ app.post("/feeds", function (req, res) {
       res.send({ result: "error" });
     } else {
       console.log("success");
+      res.send({ result: "success" });
       res.redirect("/feeds");
     }
   });
@@ -106,6 +107,7 @@ app.post("/mountain_detail", function (req, res) {
       res.send({ result: "error" });
     } else {
       console.log("success");
+      res.send({ result: "success" });
       res.redirect("/mountain_detail");
     }
   });
@@ -125,6 +127,7 @@ app.post("/mountain_detail", function (req, res) {
       res.send({ result: "error" });
     } else {
       console.log("success");
+      res.send({ result: "success" });
       res.redirect("/mountain_detail");
     }
   });
@@ -166,6 +169,7 @@ app.post("/mountain_review", function (req, res) {
       res.send({ result: "error" });
     } else {
       console.log("success");
+      res.send({ result: "success" });
       res.redirect("/mountain_review");
     }
   });
@@ -219,7 +223,10 @@ app.post("/users", function (req, res) {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.send({ result: "success" });
+      res.send({
+        result: "success",
+        loginResult: data,
+      });
       res.redirect("/users");
     }
   });
@@ -274,6 +281,7 @@ app.post("/users_detail", function (req, res) {
       res.send({ result: "error" });
     } else {
       console.log("success");
+      res.send({ result: "success" });
       res.redirect("/users_detail");
     }
   });
