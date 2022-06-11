@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MountainApp">
         <activity
+            android:name=".ui.CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.UploadActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.signup.SignupActivity"
             android:exported="false" />
         <activity

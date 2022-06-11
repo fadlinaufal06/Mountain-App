@@ -55,6 +55,8 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    //Circle Image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // ViewModel dan LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
@@ -83,4 +85,9 @@ dependencies {
     implementation "androidx.camera:camera-camera2:${camerax_version}"
     implementation "androidx.camera:camera-lifecycle:${camerax_version}"
     implementation "androidx.camera:camera-view:${camerax_version}"
+
+    // Other
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation "com.airbnb.android:lottie:3.4.0"
+    implementation "com.getbase:floatingactionbutton:1.10.1"
 }

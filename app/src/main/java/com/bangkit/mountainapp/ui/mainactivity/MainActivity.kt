@@ -3,6 +3,7 @@ package com.bangkit.mountainapp.ui.mainactivity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -29,13 +30,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setupView()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupViewModel()
         checkIsLogin()
 
+    }
+
+    private fun setupView() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        supportActionBar?.hide()
     }
 
     private fun setupViewModel() {
