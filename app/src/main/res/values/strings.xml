@@ -39,7 +39,7 @@
     <string name="description">description</string>
     <string name="uploaded_on">uploaded at</string>
     <string name="someone_s_story_image">someone feeds</string>
-    <string name="welcoming">Hi %s Welcome to Mountain App</string>
+    <string name="welcoming">Hi, %1s\nWelcome to Mountain App</string>
     <string name="profile_picture_user">profile picture</string>
     <string name="greeting">Hi %s</string>
     <string name="greeting2">Stay Healty</string>
@@ -52,4 +52,5 @@
     <string name="your_account">Your Account</string>
     <string name="language">Language</string>
     <string name="logout">Logout</string>
+    <string name="scan_mount">Scan Mount</string>
 </resources>
