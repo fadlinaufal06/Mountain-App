@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "c22-ps217-capstone-project",
+  "private_key_id": "1a1763a59373d55dd3f5d46a0e76bdf471251f0b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDdT6hDGKLk3tDj\nDfRKSuAmoc97ylv1xu02a+jqrVYdYTiKNwwASqSc6KAytsA0zTJnuEIuRkDPeFZE\noV2AeakmBAjjkFhbq+O9mjXQa+pdz0Q3xg5MnjjWlQVC1I2ybSrOm5B8t6DB0dRb\nd0uby4DI+lDm1t8aB5njO73MixyHqKNV4HMdXGTusqtI4iBSGub3vUcqN2d3pxtL\nKpfexA4YXv2vEJ2ne81DxJ7KO/yISjeeaRoKToe0YlY3vV4JZLWeukf8tmbHJlUo\nwRur1PF+ZZ8KArWHzeKL46TlPr2egRKyWA982zaDQe+/2VzzIJh/Rl9obzab6ig/\noi1Po6bLAgMBAAECggEARwtv0h5CCKPovcL4hbL0syIlt7EWBVfXRa2th0yexO61\nVlVmgl9z6bUZ3D3jhO/MexRhFnbSDmgslXqRyBEGNmB8NAVeAAu1n+O129MQ2Q2U\n8iyf4YO3bldHaZVPaZR29f1ljEvsjNvdxoEM4hYZoSsONpSK6VHAWnyOqO+NeJSW\n8v6+6Yef6luzNJDRIHxbZ4RIspTRQYoDb+qpO8W8SStpLpTmxJHvXFfMiJ2D3wBR\nviaat4rp7eNs7WTiBPx5jSAMqC22dh6TFSllk5kUDjaoR9N/MsQCPNBGqpFfQgub\nQv36ZfA70bZ16CKT6f+sT/9T633hQAcABctRQQQE0QKBgQD2tKt9MvNXem6R3MsC\nCR5qjnSkRRdrFVdd8axdzEaJIhETqSxPU5lSs63AapcoL7Lkxiy0F7BBP5G0X+Q3\nCdQ/ge/G9vomo6rZkdgD0myh709TPTMhkNZ01eRGwlQ9UxPo07PjNeK+LSzC6Fit\nylq1tamgVCDLVdvTTLiCEEG3WwKBgQDlphJfrASDhBn6ebAeVg+ohC3erDuEsY86\nM7ED08zflfE2eDkQryAOfnSpkiWyVfj+mUYLCZ1QdHITWynQ8MYifEqq+biLK2jT\nljkoJHoioWjmV5EylGVQKzUNzdXx9V/x98o8f5fy8w+Ti8rilkwwMXpibt7PRdV7\nRmgW625ZUQKBgQC1dD9p766x2dg3qqkaTzCy+SJrrHHEDkdbTqUTvGro9EiRKG3x\nzrBH9uZGT1/sa+DtiaFZuM6nvyThAWKu5KjbKSv+MKve/aRtMGssrHnARW8X7zyL\nZKeH+cZUERy6mj9bkVKPPJQQgtOYbCLFeL9tRTeFODuCsxzjdluDNofPXwKBgQDQ\nBl3CeGomUDXQJQcak87fUczTVqUbkFQz3rtMwkFlj8fPFZxrtpeNSZOYP6ESKLrC\ntkkymmT8il8DlaMNd+2jM3/X3RoERzBP6lagPFq+oAQME+qdLLuRoXIPrRNOeH2P\nDG0P3GziULcdapZAJvGg/lDkdZYzoAjAAIktqdpt4QKBgQDODAd+/DYl5y8sT6F0\n+RclD7UxZFzzMdfi32ndFuoKHSKDnufFkgmWVFo8GeRikB+hbOMI1bZ4mFTjWSLo\nkJ2S+7HY3gvu2j1kxqFjlJVYwcoHFpOLkTMGHI3Uo5eEXW5DXLThxumVZtu4lvxa\nxvHN4drz05hRtLKs6MS7Ow9l1w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "image-upload@c22-ps217-capstone-project.iam.gserviceaccount.com",
+  "client_id": "108372716934585652782",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/image-upload%40c22-ps217-capstone-project.iam.gserviceaccount.com"
+}

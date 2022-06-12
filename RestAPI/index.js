@@ -5,9 +5,47 @@ var app = express();
 var bodyParser = require("body-parser");
 var connection = require("./database");
 const posting = require("multer")();
+const multer = require("multer");
+const uploadImage = require("./helpers/helpers");
 
+const multerMid = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+  },
+});
+
+app.disable("x-powered-by");
+app.use(multerMid.single("file"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// app.post("/upload-feeds", async (req, res, next) => {
+//   try {
+//     const myFile = req.file;
+//     const imageUrl = await uploadImage(myFile);
+//     let data = {
+//       username: req.body.username,
+//       upload_date: req.body.upload_date,
+//       caption: req.body.caption,
+//       photo: imageUrl,
+//     };
+//     res.status(200).json({
+//       message: "Upload was successful",
+//       data: data,
+//     });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    error: err,
+    message: "Internal server error!",
+  });
+  next();
+});
 
 app.get("/", (req, res) =>
   res.send(
@@ -39,25 +77,61 @@ app.route("/feeds/:id").get((req, res, next) => {
   );
 });
 
-app.post("/feeds", posting.any(), function (req, res) {
-  let data = {
-    username: req.body.username,
-    upload_date: req.body.upload_date,
-    caption: req.body.caption,
-    photo: req.body.photo,
-  };
-  let sql = "INSERT INTO feeds SET ?";
-  let query = connection.query(sql, data, (err, results) => {
-    if (err) {
-      console.log("error");
-      res.send({ result: "error" });
-    } else {
-      console.log("success");
-      res.send({ result: "success" });
-      res.redirect("/feeds");
-    }
-  });
+// app.post("/feeds", posting.any(), function (req, res) {
+//   let data = {
+//     username: req.body.username,
+//     upload_date: req.body.upload_date,
+//     caption: req.body.caption,
+//     photo: req.body.photo,
+//   };
+//   let sql = "INSERT INTO feeds SET ?";
+//   let query = connection.query(sql, data, (err, results) => {
+//     if (err) {
+//       console.log("error");
+//       res.send({ result: "error" });
+//     } else {
+//       console.log("success");
+//       res.send({ result: "success" });
+//       res.redirect("/feeds");
+//     }
+//   });
+// });
+
+app.post("/feeds", async (req, res, next) => {
+  try {
+    const myFile = req.file;
+    const imageUrl = await uploadImage(myFile);
+    let data = {
+      username: req.body.username,
+      upload_date: req.body.upload_date,
+      caption: req.body.caption,
+      photo: imageUrl,
+    };
+    let sql = "INSERT INTO feeds SET ?";
+    let query = connection.query(sql, data, (err, results) => {
+      if (err) {
+        console.log("error");
+        console.log(err);
+        res.send({ result: "error" });
+      } else {
+        console.log("success");
+        res.status(200).json({
+          result: "success",
+          message: "Upload was successful",
+          data: data,
+        });
+        // res.redirect("/feeds");
+      }
+    });
+  } catch (error) {
+    next(error);
+  }
 });
+
+// res.status(200).json({
+//   message: "Upload was successful",
+//   data: imageUrl,
+// });
 
 app.put("/feeds/:id", posting.any(), function (req, res) {
   var user_id = req.params.id;
