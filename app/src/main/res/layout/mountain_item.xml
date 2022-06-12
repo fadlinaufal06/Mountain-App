@@ -28,7 +28,7 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tv_item_name"
+            android:id="@+id/tv_mountain_name_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -49,10 +49,10 @@
             card_view:layout_constraintHorizontal_bias="0.492"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/profile_image"
-            tools:src="@drawable/icon_mount" />
+            tools:src="@drawable/mount_icon" />
 
         <TextView
-            android:id="@+id/tv_mountain_name"
+            android:id="@+id/tv_mountain_loc1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -78,6 +78,6 @@
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@+id/tv_mountain_name" />
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_mountain_loc1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
