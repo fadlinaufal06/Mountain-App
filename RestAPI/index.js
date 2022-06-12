@@ -23,7 +23,7 @@ app.get("/feeds", (req, res) => {
     "SELECT * FROM `mountain`.`feeds`",
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -34,7 +34,7 @@ app.route("/feeds/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -101,7 +101,7 @@ app.get("/mountain_detail", (req, res) => {
     "SELECT * FROM `mountain`.`mountain_detail`",
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -109,12 +109,12 @@ app.get("/mountain_detail", (req, res) => {
 app.route("/mountain_detail/:id").get((req, res, next) => {
   connection.query(
     "SELECT * FROM `mountain`.`mountain_detail` WHERE id = ?",
-    req.params.id,
+    req.params.id, 
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
-  );
+    );
 });
 
 app.post("/mountain_detail", posting.any(), function (req, res) {
@@ -123,25 +123,8 @@ app.post("/mountain_detail", posting.any(), function (req, res) {
     location: req.body.location,
     history: req.body.history,
     iconic_site: req.body.iconic_site,
-  };
-  let sql = "INSERT INTO mountain_detail SET ?";
-  let query = connection.query(sql, data, (err, results) => {
-    if (err) {
-      console.log("error");
-      res.send({ result: "error" });
-    } else {
-      console.log("success");
-      res.redirect("/mountain_detail");
-    }
-  });
-});
-
-app.post("/mountain_detail", function (req, res) {
-  let data = {
-    mountain_name: req.body.mountain_name,
-    location: req.body.location,
-    history: req.body.history,
-    iconic_site: req.body.iconic_site,
+    elevation: req.body.elevation,
+    stars: req.body.stars,
   };
   let sql = "INSERT INTO mountain_detail SET ?";
   let query = connection.query(sql, data, (err, results) => {
@@ -161,7 +144,7 @@ app.get("/mountain_review", (req, res) => {
     "SELECT * FROM `mountain`.`mountain_review`",
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -172,7 +155,7 @@ app.route("/mountain_review/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -239,7 +222,7 @@ app.get("/users", (req, res) => {
     "SELECT * FROM `mountain`.`users`",
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -250,7 +233,7 @@ app.route("/users/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -315,7 +298,7 @@ app.get("/users_detail", (req, res) => {
     "SELECT * FROM `mountain`.`users_detail`",
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -326,7 +309,7 @@ app.route("/users_detail/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
