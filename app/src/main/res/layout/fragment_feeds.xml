@@ -112,12 +112,11 @@
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="@string/expandable_floating_action_button"
         app:fab_labelStyle="@style/LabelStyle"
         app:fab_labelsPosition="left"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
