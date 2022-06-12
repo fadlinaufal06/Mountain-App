@@ -138,6 +138,9 @@ class UploadActivity : AppCompatActivity() {
         if (result.resultCode == RESULT_OK) {
             val selectedImg: Uri = result.data?.data as Uri
             val myFile = uriToFile(selectedImg, this@UploadActivity)
+            val fileBitmap = fileToBitmap(myFile)
+
+
             binding.previewImageView.setImageURI(selectedImg)
         }
     }
