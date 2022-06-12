@@ -59,16 +59,17 @@
         android:id="@+id/greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:fontFamily="@font/redhatdisplay_semibold"
         android:text="@string/welcoming"
         android:textColor="@color/van_dyke_brown"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/header_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.773" />
+        app:layout_constraintVertical_bias="0.767" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_scan_mount"

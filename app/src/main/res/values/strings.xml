@@ -39,9 +39,9 @@
     <string name="description">description</string>
     <string name="uploaded_on">uploaded at</string>
     <string name="someone_s_story_image">someone feeds</string>
-    <string name="welcoming">Hi, %1s\nWelcome to Mountain App</string>
+    <string name="welcoming">Hi, %1s\nWelcome to Mountain App 👋</string>
     <string name="profile_picture_user">profile picture</string>
-    <string name="greeting">Hi %s</string>
+    <string name="greeting">Hi 1%s</string>
     <string name="greeting2">Stay Healty</string>
     <string name="expandable_floating_action_button">floating icon</string>
     <string name="camera_x">CameraX</string>
