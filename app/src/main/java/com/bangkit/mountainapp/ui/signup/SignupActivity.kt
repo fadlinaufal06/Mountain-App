@@ -119,7 +119,7 @@ class SignupActivity : AppCompatActivity() {
         }
 
         viewModel.responseRegister.observe(this) {
-            if (it) {
+            if (it.equals("success")) {
                 AlertDialog.Builder(this).apply {
                     setTitle(getString(R.string.user_created))
                     setMessage(getString(R.string.login_to_continue))

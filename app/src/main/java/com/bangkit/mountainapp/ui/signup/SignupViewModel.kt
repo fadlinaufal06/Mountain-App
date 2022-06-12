@@ -12,8 +12,8 @@ import retrofit2.Response
 
 class SignupViewModel : ViewModel() {
 
-    private val _responseRegister = MutableLiveData<Boolean>()
-    val responseRegister: LiveData<Boolean> = _responseRegister
+    private val _responseRegister = MutableLiveData<String>()
+    val responseRegister: LiveData<String> = _responseRegister
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -36,19 +36,14 @@ class SignupViewModel : ViewModel() {
             ) {
                 _isLoading.postValue(false)
 
-                if (response.isSuccessful) {
-                    val responseBody = response.body()
-                    if (responseBody != null && !responseBody.error) {
-                        _responseRegister.postValue(true)
-                    } else {
-                        _responseRegister.postValue(false)
-                        _onFailure.postValue("Is Not Success: ${response.message()}")
-                        Log.e(TAG, "isNotSuccess: ${response.message()}")
-                    }
-                } else {
-                    _responseRegister.postValue(false)
-                    Log.e(TAG, "isNotSuccess: ${response.message()}")
-                }
+                _responseRegister.postValue(response.body()?.result.toString())
+
+//                if (response.equals("success")) {
+//                    _responseRegister.postValue(true)
+//                } else {
+//                    _responseRegister.postValue(false)
+//                    Log.e(TAG, "isNotSuccess: ${response.message()}")
+//                }
             }
 
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {

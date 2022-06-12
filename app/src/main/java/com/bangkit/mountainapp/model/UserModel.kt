@@ -1,8 +1,8 @@
 package com.bangkit.mountainapp.model
 
 data class UserModel(
-    var userId: String,
-    var name: String,
-    var token: String,
+    var username: String,
+    var email: String,
+    var password: String,
     var isLogin: Boolean
 )
