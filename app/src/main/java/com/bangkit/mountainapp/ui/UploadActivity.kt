@@ -153,13 +153,44 @@ class UploadActivity : AppCompatActivity() {
         if (result.resultCode == RESULT_OK) {
             val selectedImg: Uri = result.data?.data as Uri
             val myFile = uriToFile(selectedImg, this@UploadActivity)
-            val fileBitmap = fileToBitmap(myFile)
+            val bitmap = fileToBitmap(myFile)
 
+            //declearing tensorflow lite model variable
+            val model = ConvertedModelGunung2.newInstance(this)
 
-            binding.previewImageView.setImageURI(selectedImg)
+// Creates inputs for reference.
+            val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 300, 300, 3), DataType.FLOAT32)
+
+            val byteBuffer : ByteBuffer = ByteBuffer.allocateDirect(4*256*256*3) // tanya ka alfan
+            byteBuffer.order(ByteOrder.nativeOrder())
+
+            val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 256, 256, false)
+            val pixelValues = IntArray(256 * 256)
+            bitmap.getPixels(pixelValues, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
+
+            var pixel = 0
+            for (i in 0 until 256) {
+                for (j in 0 until 256) {
+                    val pixelValue = pixelValues[pixel++]
+                    byteBuffer.putFloat((pixelValue shr 16 and 0xFF) / 255f)
+                    byteBuffer.putFloat((pixelValue shr 8 and 0xFF) / 255f)
+                    byteBuffer.putFloat((pixelValue and 0xFF) / 255f)
+                }
+            }
+
+            inputFeature0.loadBuffer(byteBuffer)
+
+// Runs model inference and gets result.
+            val outputs = model.process(inputFeature0)
+            val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+            print(outputFeature0)
+// Releases model resources if no longer used.
+            model.close()
         }
-    }
-
+            binding.previewImageView.setImageURI(selectedImg)
+            return outputFeature0
+        }
+/*
     private fun outputGenerator(bitmap: Bitmap){
         //declearing tensorflow lite model variable
         val model = ConvertedModelGunung2.newInstance(this)
@@ -194,7 +225,6 @@ class UploadActivity : AppCompatActivity() {
         model.close()
     }
 
-    /*
         private fun outputGenerator2(bitmap: Bitmap){
             val image = TensorImage.fromBitmap(bitmap)
             val option = ObjectDetector.ObjectDetectorOptions.builder()
