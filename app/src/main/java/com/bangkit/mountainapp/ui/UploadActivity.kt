@@ -318,7 +318,7 @@ class UploadActivity : AppCompatActivity() {
             }
         }
         val classes = arrayOf("Bromo", "Ijen", "Papandayan", "Kerinci", "Tangkuban Perahu")
-        TODO("nanti di check terus bisa masuk ke detail")
+
 //        result.setText(classes[maxPos])
         Toast.makeText(this, classes[maxPos], Toast.LENGTH_SHORT).show()
 

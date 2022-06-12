@@ -53,4 +53,8 @@
     <string name="your_account">Akunmu</string>
     <string name="language">Bahasa</string>
     <string name="logout">Logout</string>
+    <string name="upload_a_story">upload</string>
+    <string name="add_story">Add Photo</string>
+    <string name="preview_image_before_upload">preview image</string>
+    <string name="upload_image_from">Upload From</string>
 </resources>
