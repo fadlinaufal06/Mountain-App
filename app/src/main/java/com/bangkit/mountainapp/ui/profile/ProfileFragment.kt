@@ -1,7 +1,9 @@
 package com.bangkit.mountainapp.ui.profile
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,6 +51,10 @@ class ProfileFragment : Fragment() {
 
         binding.clickYourAccount.setOnClickListener {
             Toast.makeText(activity, "Masuk ke edit account", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.clickLanguage.setOnClickListener{
+            startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
     }
 

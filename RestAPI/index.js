@@ -4,6 +4,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var connection = require("./database");
+const posting = require("multer")();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -38,7 +39,7 @@ app.route("/feeds/:id").get((req, res, next) => {
   );
 });
 
-app.post("/feeds", function (req, res) {
+app.post("/feeds", posting.any(), function (req, res) {
   let data = {
     username: req.body.username,
     upload_date: req.body.upload_date,
@@ -56,6 +57,30 @@ app.post("/feeds", function (req, res) {
       res.redirect("/feeds");
     }
   });
+});
+
+app.put("/feeds/:id", posting.any(), function (req, res) {
+  var user_id = req.params.id;
+  var feeds = {
+    username: req.body.username,
+    upload_date: req.body.upload_date,
+    caption: req.body.caption,
+    photo: req.body.photo,
+  };
+
+  connection.query(
+    "UPDATE feeds SET ? WHERE id = ?",
+    [feeds, user_id],
+    function (err, results) {
+      if (err) {
+        console.log("error");
+        res.send({ result: "error" });
+      } else {
+        console.log("success");
+        res.redirect("/feeds");
+      }
+    }
+  );
 });
 
 app.delete("/feeds/:id", (req, res) => {
@@ -84,7 +109,7 @@ app.get("/mountain_detail", (req, res) => {
 
 app.route("/mountain_detail/:id").get((req, res, next) => {
   connection.query(
-    "SELECT * FROM `mountain_detail`.`feeds` WHERE id = ?",
+    "SELECT * FROM `mountain`.`mountain_detail` WHERE id = ?",
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
@@ -93,7 +118,7 @@ app.route("/mountain_detail/:id").get((req, res, next) => {
   );
 });
 
-app.post("/mountain_detail", function (req, res) {
+app.post("/mountain_detail", posting.any(), function (req, res) {
   let data = {
     mountain_name: req.body.mountain_name,
     location: req.body.location,
@@ -150,12 +175,13 @@ app.route("/mountain_review/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
+      console.log(results[0]);
       res.json(results);
     }
   );
 });
 
-app.post("/mountain_review", function (req, res) {
+app.post("/mountain_review", posting.any(), function (req, res) {
   let data = {
     mountain_name: req.body.mountain_name,
     username: req.body.username,
@@ -188,6 +214,30 @@ app.delete("/mountain_review/:id", (req, res) => {
   });
 });
 
+app.put("/mountain_review/:id", posting.any(), function (req, res) {
+  var user_id = req.params.id;
+  var mountain = {
+    mountain_name: req.body.mountain_name,
+    username: req.body.username,
+    rating: req.body.rating,
+    comment: req.body.comment,
+  };
+
+  connection.query(
+    "UPDATE mountain_review SET ? WHERE id = ?",
+    [mountain, user_id],
+    function (err, results) {
+      if (err) {
+        console.log("error");
+        res.send({ result: "error" });
+      } else {
+        console.log("success");
+        res.redirect("/mountain_review");
+      }
+    }
+  );
+});
+
 //Users
 app.get("/users", (req, res) => {
   connection.query(
@@ -210,7 +260,7 @@ app.route("/users/:id").get((req, res, next) => {
   );
 });
 
-app.post("/users", function (req, res) {
+app.post("/users", posting.any(), function (req, res) {
   let data = {
     username: req.body.username,
     email: req.body.email,
@@ -245,6 +295,29 @@ app.delete("/users/:id", (req, res) => {
   });
 });
 
+app.put("/users/:id", posting.any(), function (req, res) {
+  var user_id = req.params.id;
+  var user = {
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+  };
+
+  connection.query(
+    "UPDATE users SET ? WHERE id = ?",
+    [user, user_id],
+    function (err, results) {
+      if (err) {
+        console.log("error");
+        res.send({ result: "error" });
+      } else {
+        console.log("success");
+        res.redirect("/users");
+      }
+    }
+  );
+});
+
 //Login
 app.post("/login", function (req, res) {
   let data = {
@@ -252,7 +325,7 @@ app.post("/login", function (req, res) {
     email: req.body.email,
     password: req.body.password,
   };
-  let sql = `SELECT * FROM users WHERE email="${data.email}" AND password="${data.password}"`;
+  let sql = `SELECT * FROM users WHERE email="${data.email}" AND password="${data.password}" LIMIT 1`;
   let query = connection.query(sql, (err, results) => {
     if (err) {
       console.log(sql);
@@ -263,6 +336,8 @@ app.post("/login", function (req, res) {
       // console.log(query._results[0]);
       if (results.length) {
         console.log("success");
+        console.log(results[0].username);
+        data.username = results[0].username;
         res.send({
           result: "success",
           loginResult: data,
@@ -301,7 +376,7 @@ app.route("/users_detail/:id").get((req, res, next) => {
   );
 });
 
-app.post("/users_detail", function (req, res) {
+app.post("/users_detail", posting.any(), function (req, res) {
   let data = {
     username: req.body.username,
     name: req.body.name,
@@ -334,23 +409,28 @@ app.delete("/users_detail/:id", (req, res) => {
   });
 });
 
-app.put("/users_detail/:id", (req, res) => {
-  let data = {
+app.put("/users_detail/:id", posting.any(), function (req, res) {
+  var user_id = req.params.id;
+  var users_detail = {
     username: req.body.username,
     name: req.body.name,
     photo: req.body.photo,
     favourite: req.body.favourite,
   };
-  let sql = "UPDATE users_detail SET ? WHERE id= ?";
-  let query = connection.query(sql, req.params.id, (err, results) => {
-    if (err) {
-      console.log("error");
-      res.send({ result: "error" });
-    } else {
-      console.log("success");
-      res.redirect("/users_detail");
+
+  connection.query(
+    "UPDATE users_detail SET ? WHERE id = ?",
+    [users_detail, user_id],
+    function (err, results) {
+      if (err) {
+        console.log("error");
+        res.send({ result: "error" });
+      } else {
+        console.log("success");
+        res.redirect("/users_detail");
+      }
     }
-  });
+  );
 });
 
 // Use port 8080 by default, unless configured differently in Google Cloud

@@ -40,8 +40,7 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
                     val responseBody = response.body()
                     if (responseBody != null && responseBody.result == "success") {
                         _responseLogin.postValue(true)
-//                        val username = responseBody.loginResult.username
-                        val username = "HIHIHI"
+                        val username = responseBody.loginResult.username
                         val emailUser = responseBody.loginResult.email
                         val passwordUser = responseBody.loginResult.password
                         saveUserPreference(UserModel(username, emailUser, passwordUser, true))
