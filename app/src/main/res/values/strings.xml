@@ -54,7 +54,6 @@
     <string name="logout">Logout</string>
     <string name="scan_mount">Scan Mount</string>
     <string name="top_2_mount">Top 2 Mount</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="scan_from">Scan mount from:</string>
     <string name="mountain_has_been_identified">Mountain has been identified!</string>
@@ -62,4 +61,8 @@
     <string name="gunung_1s">Gunung %1s</string>
     <string name="result">Result:</string>
     <string name="go_back">Go Back</string>
+    <string name="upload_a_story">upload</string>
+    <string name="add_story">Add Photo</string>
+    <string name="preview_image_before_upload">preview image</string>
+    <string name="upload_image_from">Upload From</string>
 </resources>
