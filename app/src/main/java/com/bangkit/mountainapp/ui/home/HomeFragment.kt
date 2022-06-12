@@ -13,6 +13,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -220,9 +223,9 @@ class HomeFragment : Fragment() {
             val bitmap = fileToBitmap(myFile)
             val resized = Bitmap.createScaledBitmap(bitmap, 300, 300, false)
 
-            val result = classifyImage(resized)
+            classifyImage(resized)
 
-//            binding.previewImageView.setImageURI(selectedImg)
+//            binding..setImageURI(selectedImg)
         }
     }
 
@@ -269,27 +272,38 @@ class HomeFragment : Fragment() {
         }
         val classes = arrayOf("Bromo", "Ijen", "Papandayan", "Kerinci", "Tangkuban Perahu")
         //        result.setText(classes[maxPos])
-        Toast.makeText(requireActivity(), classes[maxPos], Toast.LENGTH_SHORT).show()
+//        Toast.makeText(requireActivity(), classes[maxPos], Toast.LENGTH_SHORT).show()
 
+        showCustomDialog(classes[maxPos], bitmap)
         // Releases model resources if no longer used.
         model.close()
 
     }
 
-    fun showCustomDialog() {
+    private fun showCustomDialog(resultMount: String, bitmap: Bitmap) {
         val dialog = Dialog(requireActivity())
         //We have added a title in the custom layout. So let's disable the default title.
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         //The user will be able to cancel the dialog bu clicking anywhere outside the dialog.
         dialog.setCancelable(true)
         //Mention the name of the layout of your custom dialog.
-//        dialog.setContentView(R.layout.fragment_result_classification)
-//        val button: Button = dialog.findViewById(R.id.button)
+        dialog.setContentView(R.layout.result_scan)
+        val button: Button = dialog.findViewById(R.id.btn_detail)
+        val back: Button = dialog.findViewById(R.id.btn_go_back)
+        val result: TextView = dialog.findViewById(R.id.result_mountain)
+        val previewImageView: ImageView = dialog.findViewById(R.id.previewImageView)
         //Initializing the views of the dialog.
-//
-//        button.setOnClickListener(View.OnClickListener {
-//            Toast.makeText(requireActivity(), "bisaa yeaeyyyy", Toast.LENGTH_SHORT).show()
-//        })
+
+        result.text = getString(R.string.gunung_1s, resultMount)
+        previewImageView.setImageBitmap(bitmap)
+
+        button.setOnClickListener{
+            Toast.makeText(requireActivity(), "bisaa yeaeyyyy", Toast.LENGTH_SHORT).show()
+        }
+        back.setOnClickListener{
+            dialog.dismiss()
+        }
+
         dialog.show()
     }
 
