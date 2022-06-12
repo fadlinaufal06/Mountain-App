@@ -109,7 +109,7 @@ app.get("/mountain_detail", (req, res) => {
 
 app.route("/mountain_detail/:id").get((req, res, next) => {
   connection.query(
-    "SELECT * FROM `mountain_detail`.`feeds` WHERE id = ?",
+    "SELECT * FROM `mountain`.`mountain_detail` WHERE id = ?",
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
@@ -175,6 +175,7 @@ app.route("/mountain_review/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
+      console.log(results[0]);
       res.json(results);
     }
   );
