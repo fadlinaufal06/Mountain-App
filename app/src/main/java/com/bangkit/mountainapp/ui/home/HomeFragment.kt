@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -62,13 +63,38 @@ class HomeFragment : Fragment() {
                     usernameProfile.text = user.username
                     val urlRandomAvatar = setProfilePicture(user.username)
 
-                    Glide.with(activity!!)
+                    Glide.with(requireActivity())
                         .load(urlRandomAvatar)
                         .placeholder(R.drawable.ic_baseline_person_24)
                         .error(R.mipmap.ic_launcher_round)
                         .into(imageProfile)
                 }
 
+            }
+        }
+
+        viewModel.getTop2FavMount()
+
+        viewModel.responseGet2Fav.observe(viewLifecycleOwner){
+            var i = 0
+            for (list2TopMount in it.listMountDetail){
+                i++
+                if (i == 1){
+                    binding.apply {
+                        tvMountainName1.text = list2TopMount.mountainName
+                        tvLoc1.text = list2TopMount.location
+                    }
+                }
+                else if (i == 2){
+                    binding.apply {
+                        tvMountainName2.text = list2TopMount.mountainName
+                        tvLoc2.text = list2TopMount.location
+                    }
+                }
+                else if (i > 2){
+                    Toast.makeText(requireActivity(), "Test sampe sini", Toast.LENGTH_SHORT).show()
+                    break
+                }
             }
         }
     }
