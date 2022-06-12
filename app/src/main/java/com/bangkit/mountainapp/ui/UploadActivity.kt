@@ -170,6 +170,20 @@ class UploadActivity : AppCompatActivity() {
         val byteBuffer : ByteBuffer = ByteBuffer.allocateDirect(4*256*256*3) // tanya ka alfan
         byteBuffer.order(ByteOrder.nativeOrder())
 
+        val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 256, 256, false)
+        val pixelValues = IntArray(256 * 256)
+        bitmap.getPixels(pixelValues, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
+
+        var pixel = 0
+        for (i in 0 until 256) {
+            for (j in 0 until 256) {
+                val pixelValue = pixelValues[pixel++]
+                byteBuffer.putFloat((pixelValue shr 16 and 0xFF) / 255f)
+                byteBuffer.putFloat((pixelValue shr 8 and 0xFF) / 255f)
+                byteBuffer.putFloat((pixelValue and 0xFF) / 255f)
+            }
+        }
+
         inputFeature0.loadBuffer(byteBuffer)
 
 // Runs model inference and gets result.
@@ -180,9 +194,73 @@ class UploadActivity : AppCompatActivity() {
         model.close()
     }
 
-    private fun outputGenerator2(){
+    /*
+        private fun outputGenerator2(bitmap: Bitmap){
+            val image = TensorImage.fromBitmap(bitmap)
+            val option = ObjectDetector.ObjectDetectorOptions.builder()
+                .setMaxResults(1)
+                .setScoreThreshold(0.3f)
+                .build()
+            val detector = ImageClassifier.createFromFileAndOptions(
+                this,
+                "converted_model_gunung_2.tflite",
+                option)
 
-    }
+            val result = detector.detect(image)
+
+        }
+
+
+        private fun getModelByteBuffer(assetManager: AssetManager, modelPath: String): MappedByteBuffer {
+            val fileDescriptor = assetManager.openFd(modelPath)
+            val inputStream = FileInputStream(fileDescriptor.fileDescriptor)
+            val fileChannel = inputStream.channel
+            val startOffset = fileDescriptor.startOffset
+            val declaredLength = fileDescriptor.declaredLength
+            return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength)
+        }
+
+        private fun getLabels(assetManager: AssetManager, labelPath: String): List<String> {
+            val labels = ArrayList<String>()
+            val reader = BufferedReader(InputStreamReader(assetManager.open(labelPath)))
+            while (true) {
+                val label = reader.readLine() ?: break
+                labels.add(label)
+            }
+            reader.close()
+            return labels
+        }
+
+        fun recognize(bitmap: Bitmap): List<Recognition>{
+            val scaledBitmap = Bitmap.createScaledBitmap(bitmap, 256, 256, false)
+            val pixelValues = IntArray(256 * 256)
+            bitmap.getPixels(pixelValues, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
+
+            var pixel = 0
+            for (i in 0 until 256) {
+                for (j in 0 until 256) {
+                    val pixelValue = pixelValues[pixel++]
+                    byteBuffer.putFloat((pixelValue shr 16 and 0xFF) / 255f)
+                    byteBuffer.putFloat((pixelValue shr 8 and 0xFF) / 255f)
+                    byteBuffer.putFloat((pixelValue and 0xFF) / 255f)
+                }
+            }
+            val results = Array(BATCH_SIZE) { FloatArray(labels.size) }
+            model.run(byteBuffer, results)
+            return parseResults(results)
+        }
+
+        private fun parseResults(result: Array<FloatArray>): List<Recognition> {
+            val recognitions = mutableListOf<Recognition>()
+            labels.forEachIndexed { index, label ->
+                val probability = result[0][index]
+                recognitions.add(Recognition(label, probability))
+            }
+
+            return recognitions.sortedByDescending { it.probability }
+        }
+
+     */
     @Throws(IOException::class)
     private fun getLabels(assetManager: AssetManager, labelPath: String): List<String> {
         val labels = ArrayList<String>()
