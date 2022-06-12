@@ -38,15 +38,16 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
                 _isLoading.postValue(false)
                 if (response.isSuccessful) {
                     val responseBody = response.body()
-                    if (responseBody != null && !responseBody.error) {
+                    if (responseBody != null && responseBody.result == "success") {
                         _responseLogin.postValue(true)
-                        val userId = responseBody.loginResult.userId
-                        val name = responseBody.loginResult.name
-                        val token = responseBody.loginResult.token
-                        saveUserPreference(UserModel(userId, name, token, true))
+//                        val username = responseBody.loginResult.username
+                        val username = "HIHIHI"
+                        val emailUser = responseBody.loginResult.email
+                        val passwordUser = responseBody.loginResult.password
+                        saveUserPreference(UserModel(username, emailUser, passwordUser, true))
                     } else {
                         _responseLogin.postValue(false)
-                        _onFailure.postValue("Is Not Success: ${response.message()}")
+                        _onFailure.postValue("Is Not Success: ${responseBody?.message}")
                         Log.e(TAG, "isNotSuccess: ${response.message()}")
                     }
                 } else {

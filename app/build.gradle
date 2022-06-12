@@ -17,7 +17,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField 'String', 'BASE_URL_STORY', '"https://story-api.dicoding.dev/"'
+        buildConfigField 'String', 'BASE_URL', '"https://c22-ps217-capstone-project.et.r.appspot.com"'
     }
 
     buildTypes {
