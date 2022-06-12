@@ -252,7 +252,7 @@ app.post("/login", function (req, res) {
     email: req.body.email,
     password: req.body.password,
   };
-  let sql = `SELECT * FROM users WHERE email="${data.email}" AND password="${data.password}"`;
+  let sql = `SELECT * FROM users WHERE email="${data.email}" AND password="${data.password}" LIMIT 1`;
   let query = connection.query(sql, (err, results) => {
     if (err) {
       console.log(sql);
@@ -263,6 +263,8 @@ app.post("/login", function (req, res) {
       // console.log(query._results[0]);
       if (results.length) {
         console.log("success");
+        console.log(results[0].username);
+        data.username = results[0].username;
         res.send({
           result: "success",
           loginResult: data,
