@@ -175,7 +175,7 @@ class UploadActivity : AppCompatActivity() {
 // Runs model inference and gets result.
         val outputs = model.process(inputFeature0)
         val outputFeature0 = outputs.outputFeature0AsTensorBuffer
-
+        print(outputFeature0)
 // Releases model resources if no longer used.
         model.close()
     }
