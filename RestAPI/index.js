@@ -72,7 +72,7 @@ app.route("/feeds/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -151,7 +151,7 @@ app.put("/feeds/:id", posting.any(), function (req, res) {
         res.send({ result: "error" });
       } else {
         console.log("success");
-        res.redirect("/feeds");
+        // res.redirect("/feeds");
       }
     }
   );
@@ -165,7 +165,7 @@ app.delete("/feeds/:id", (req, res) => {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.redirect("/feeds");
+      // res.redirect("/feeds");
     }
   });
 });
@@ -187,7 +187,7 @@ app.route("/mountain_detail/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -198,6 +198,8 @@ app.post("/mountain_detail", posting.any(), function (req, res) {
     location: req.body.location,
     history: req.body.history,
     iconic_site: req.body.iconic_site,
+    elevation: req.body.elevation,
+    stars: req.body.stars,
   };
   let sql = "INSERT INTO mountain_detail SET ?";
   let query = connection.query(sql, data, (err, results) => {
@@ -207,7 +209,7 @@ app.post("/mountain_detail", posting.any(), function (req, res) {
     } else {
       console.log("success");
       res.send({ result: "success" });
-      res.redirect("/mountain_detail");
+      // res.redirect("/mountain_detail");
     }
   });
 });
@@ -227,7 +229,7 @@ app.post("/mountain_detail", function (req, res) {
     } else {
       console.log("success");
       res.send({ result: "success" });
-      res.redirect("/mountain_detail");
+      // res.redirect("/mountain_detail");
     }
   });
 });
@@ -250,7 +252,7 @@ app.route("/mountain_review/:id").get((req, res, next) => {
     (error, results, fields) => {
       if (error) throw error;
       console.log(results[0]);
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -270,7 +272,7 @@ app.post("/mountain_review", posting.any(), function (req, res) {
     } else {
       console.log("success");
       res.send({ result: "success" });
-      res.redirect("/mountain_review");
+      // res.redirect("/mountain_review");
     }
   });
 });
@@ -283,7 +285,7 @@ app.delete("/mountain_review/:id", (req, res) => {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.redirect("/mountain_review");
+      // res.redirect("/mountain_review");
     }
   });
 });
@@ -306,7 +308,7 @@ app.put("/mountain_review/:id", posting.any(), function (req, res) {
         res.send({ result: "error" });
       } else {
         console.log("success");
-        res.redirect("/mountain_review");
+        // res.redirect("/mountain_review");
       }
     }
   );
@@ -318,6 +320,7 @@ app.get("/users", (req, res) => {
     "SELECT * FROM `mountain`.`users`",
     (error, results, fields) => {
       if (error) throw error;
+      // console.log(results);
       res.json(results);
     }
   );
@@ -329,7 +332,7 @@ app.route("/users/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -351,7 +354,7 @@ app.post("/users", posting.any(), function (req, res) {
         result: "success",
         loginResult: data,
       });
-      res.redirect("/users");
+      // res.redirect("/users");
     }
   });
 });
@@ -364,7 +367,7 @@ app.delete("/users/:id", (req, res) => {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.redirect("/users");
+      // res.redirect("/users");
     }
   });
 });
@@ -386,7 +389,7 @@ app.put("/users/:id", posting.any(), function (req, res) {
         res.send({ result: "error" });
       } else {
         console.log("success");
-        res.redirect("/users");
+        // res.redirect("/users");
       }
     }
   );
@@ -445,7 +448,7 @@ app.route("/users_detail/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -465,7 +468,7 @@ app.post("/users_detail", posting.any(), function (req, res) {
     } else {
       console.log("success");
       res.send({ result: "success" });
-      res.redirect("/users_detail");
+      // res.redirect("/users_detail");
     }
   });
 });
@@ -478,7 +481,7 @@ app.delete("/users_detail/:id", (req, res) => {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.redirect("/users_detail");
+      // res.redirect("/users_detail");
     }
   });
 });
@@ -501,7 +504,7 @@ app.put("/users_detail/:id", posting.any(), function (req, res) {
         res.send({ result: "error" });
       } else {
         console.log("success");
-        res.redirect("/users_detail");
+        // res.redirect("/users_detail");
       }
     }
   );
