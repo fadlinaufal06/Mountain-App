@@ -3,6 +3,7 @@ package com.bangkit.mountainapp.ui
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +15,15 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.bangkit.mountainapp.databinding.ActivityUploadBinding
+import com.bangkit.mountainapp.ml.ConvertedModelGunung2
+import com.google.mlkit.vision.objects.ObjectDetector
+import com.google.mlkit.vision.objects.defaults.ObjectDetectorOptions
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 
 class UploadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUploadBinding
@@ -141,6 +150,41 @@ class UploadActivity : AppCompatActivity() {
             val myFile = uriToFile(selectedImg, this@UploadActivity)
             binding.previewImageView.setImageURI(selectedImg)
         }
+    }
+
+    private fun outputGenerator(bitmap: Bitmap){
+        //declearing tensorflow lite model variable
+        val model = ConvertedModelGunung2.newInstance(this)
+
+// Creates inputs for reference.
+        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 300, 300, 3), DataType.FLOAT32)
+
+        val byteBuffer : ByteBuffer = ByteBuffer.allocateDirect(4*256*256*3) // tanya ka alfan
+        byteBuffer.order(ByteOrder.nativeOrder())
+
+        inputFeature0.loadBuffer(byteBuffer)
+
+// Runs model inference and gets result.
+        val outputs = model.process(inputFeature0)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+// Releases model resources if no longer used.
+        model.close()
+    }
+
+    private fun outputGenerator2(bitmap: Bitmap){
+        val image = TensorImage.fromBitmap(bitmap)
+        val option = ObjectDetector.ObjectDetectorOptions.builder()
+            .setMaxResults(1)
+            .setScoreThreshold(0.3f)
+            .build()
+        val detector = ObjectDetector.createFromFileAndOptions(
+            this,
+            "converted_model_gunung_2.tflite",
+            option)
+
+        val result = detector.detect(image)
+
     }
 
 }
