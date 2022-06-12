@@ -46,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
+                android:textSize="14sp"
                 android:text="@string/placeholder_username"
                 app:layout_constraintBottom_toBottomOf="@+id/image_profile"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -71,28 +72,45 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.767" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_scan_mount"
-        android:layout_width="100dp"
+    <TextView
+        android:id="@+id/tv_scan_from"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:text="@string/scan_from"
+        android:textColor="@color/van_dyke_brown"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/header_view"
+        app:layout_constraintStart_toStartOf="@+id/header_view"
+        app:layout_constraintTop_toBottomOf="@+id/header_view" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/scan_from_camera"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="6dp"
         app:cardCornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/scan_from_gallery"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_view">
+        app:layout_constraintTop_toBottomOf="@+id/tv_scan_from"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="6dp">
 
             <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:id="@+id/icon_camera_scan"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="7dp"
-                android:background="@drawable/icon_image_search"
+                android:background="@drawable/icon_camera_search"
                 android:contentDescription="@string/gambar_header"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -103,12 +121,54 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/scan_mount"
+                android:text="@string/camera"
+                android:textColor="@color/van_dyke_brown"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/icon_camera_scan"
+                app:layout_constraintStart_toStartOf="@+id/icon_camera_scan"
+                app:layout_constraintTop_toBottomOf="@+id/icon_camera_scan" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/scan_from_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/scan_from_camera"
+        app:layout_constraintTop_toBottomOf="@+id/tv_scan_from">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp">
+
+            <ImageButton
+                android:id="@+id/icon_gallery_scan"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="7dp"
+                android:background="@drawable/icon_image_search"
+                android:contentDescription="@string/gambar_header"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/gallery"
                 android:textColor="@color/van_dyke_brown"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                app:layout_constraintTop_toBottomOf="@+id/icon_gallery_scan" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -116,14 +176,14 @@
         android:id="@+id/tv_top_2_mount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:text="@string/top_2_mount"
         android:textColor="@color/van_dyke_brown"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv_scan_mount" />
+        app:layout_constraintTop_toBottomOf="@+id/scan_from_gallery" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/top_one_mount"

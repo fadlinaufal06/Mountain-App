@@ -45,8 +45,8 @@
     <string name="greeting2">Stay Healty</string>
     <string name="expandable_floating_action_button">floating icon</string>
     <string name="camera_x">CameraX</string>
-    <string name="camera">Kamera</string>
-    <string name="gallery">Galeri</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
     <string name="upload">Unggah</string>
     <string name="gambar_header">gambar header</string>
     <string name="your_account">Your Account</string>
@@ -54,4 +54,7 @@
     <string name="logout">Logout</string>
     <string name="scan_mount">Scan Mount</string>
     <string name="top_2_mount">Top 2 Mount</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="scan_from">Scan mount from:</string>
 </resources>

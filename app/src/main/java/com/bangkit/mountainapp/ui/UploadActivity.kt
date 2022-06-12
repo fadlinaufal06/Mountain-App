@@ -76,32 +76,12 @@ class UploadActivity : AppCompatActivity() {
         launcherIntentCameraX.launch(intent)
     }
 
-    private fun startTakePhoto() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        intent.resolveActivity(packageManager)
-
-        createCustomTempFile(application).also {
-            val photoURI: Uri = FileProvider.getUriForFile(
-                this@UploadActivity,
-                "com.dicoding.picodiploma.mycamera",
-                it
-            )
-            currentPhotoPath = it.absolutePath
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-            launcherIntentCamera.launch(intent)
-        }
-    }
-
     private fun startGallery() {
         val intent = Intent()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent, "Choose a Picture")
         launcherIntentGallery.launch(chooser)
-    }
-
-    private fun uploadImage() {
-        Toast.makeText(this, "Fitur ini belum tersedia", Toast.LENGTH_SHORT).show()
     }
 
     private val launcherIntentCameraX = registerForActivityResult(
@@ -119,24 +99,6 @@ class UploadActivity : AppCompatActivity() {
 
             classifyImage(resized)
 
-
-            binding.previewImageView.setImageBitmap(result)
-        }
-    }
-
-    private lateinit var currentPhotoPath: String
-    private val launcherIntentCamera = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == RESULT_OK) {
-            val myFile = File(currentPhotoPath)
-
-            val result =  BitmapFactory.decodeFile(myFile.path)
-//            Silakan gunakan kode ini jika mengalami perubahan rotasi
-//            val result = rotateBitmap(
-//                BitmapFactory.decodeFile(myFile.path),
-//                true
-//            )
 
             binding.previewImageView.setImageBitmap(result)
         }
@@ -204,5 +166,57 @@ class UploadActivity : AppCompatActivity() {
         // Releases model resources if no longer used.
         model.close()
 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private fun startTakePhoto() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        intent.resolveActivity(packageManager)
+
+        createCustomTempFile(application).also {
+            val photoURI: Uri = FileProvider.getUriForFile(
+                this@UploadActivity,
+                "com.dicoding.picodiploma.mycamera",
+                it
+            )
+            currentPhotoPath = it.absolutePath
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+            launcherIntentCamera.launch(intent)
+        }
+    }
+    private fun uploadImage() {
+        Toast.makeText(this, "Fitur ini belum tersedia", Toast.LENGTH_SHORT).show()
+    }
+    private lateinit var currentPhotoPath: String
+    private val launcherIntentCamera = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == RESULT_OK) {
+            val myFile = File(currentPhotoPath)
+
+            val result =  BitmapFactory.decodeFile(myFile.path)
+//            Silakan gunakan kode ini jika mengalami perubahan rotasi
+//            val result = rotateBitmap(
+//                BitmapFactory.decodeFile(myFile.path),
+//                true
+//            )
+
+            binding.previewImageView.setImageBitmap(result)
+        }
     }
 }
