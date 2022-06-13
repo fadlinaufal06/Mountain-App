@@ -65,7 +65,8 @@
             android:textColor="@color/braindeis_blue"
             app:layout_constraintBottom_toBottomOf="@+id/ic_loc"
             app:layout_constraintStart_toEndOf="@+id/ic_loc"
-            app:layout_constraintTop_toTopOf="@+id/ic_loc" />
+            app:layout_constraintTop_toTopOf="@+id/ic_loc"
+            android:id="@+id/fav_location"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

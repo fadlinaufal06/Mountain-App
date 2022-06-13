@@ -54,7 +54,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.clickYourAccount.setOnClickListener {
-            Toast.makeText(activity, "Masuk ke edit account", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "Fitur ini belum tersedia", Toast.LENGTH_SHORT).show()
         }
 
         binding.clickLanguage.setOnClickListener {

@@ -104,4 +104,20 @@
         <item>@drawable/papandayan</item>
         <item>@drawable/ijen</item>
     </integer-array>
+
+
+    <integer-array name="favorite_photo">
+        <item>@drawable/bromo</item>
+        <item>@drawable/papandayan</item>
+    </integer-array>
+
+    <string-array name="mountain_favorite_name">
+        <item>Gunung Bromo</item>
+        <item>Gunung Papandayan</item>
+    </string-array>
+
+    <string-array name="mountain_favorite_location">
+        <item>Jawa Timur</item>
+        <item>Jawa Barat</item>
+    </string-array>
 </resources>
