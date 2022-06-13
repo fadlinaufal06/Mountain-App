@@ -9,10 +9,7 @@ import android.graphics.Matrix
 import android.net.Uri
 import android.os.Environment
 import com.bangkit.mountainapp.R
-import java.io.File
-import java.io.FileOutputStream
-import java.io.InputStream
-import java.io.OutputStream
+import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -87,4 +84,23 @@ fun fileToBitmap(selectedImg: File): Bitmap{
     val filePath = selectedImg.path
     val bitmap = BitmapFactory.decodeFile(filePath);
     return bitmap
+}
+
+fun reduceFileImage(file: File): File {
+    val bitmap = BitmapFactory.decodeFile(file.path)
+
+    var compressQuality = 100
+    var streamLength: Int
+
+    do {
+        val bmpStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, bmpStream)
+        val bmpPicByteArray = bmpStream.toByteArray()
+        streamLength = bmpPicByteArray.size
+        compressQuality -= 5
+    } while (streamLength > 1000000)
+
+    bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
+
+    return file
 }

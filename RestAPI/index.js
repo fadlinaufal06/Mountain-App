@@ -5,9 +5,47 @@ var app = express();
 var bodyParser = require("body-parser");
 var connection = require("./database");
 const posting = require("multer")();
+const multer = require("multer");
+const uploadImage = require("./helpers/helpers");
 
+const multerMid = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 5 * 1024 * 1024,
+  },
+});
+
+app.disable("x-powered-by");
+app.use(multerMid.single("file"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// app.post("/upload-feeds", async (req, res, next) => {
+//   try {
+//     const myFile = req.file;
+//     const imageUrl = await uploadImage(myFile);
+//     let data = {
+//       username: req.body.username,
+//       upload_date: req.body.upload_date,
+//       caption: req.body.caption,
+//       photo: imageUrl,
+//     };
+//     res.status(200).json({
+//       message: "Upload was successful",
+//       data: data,
+//     });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+app.use((err, req, res, next) => {
+  res.status(500).json({
+    error: err,
+    message: "Internal server error!",
+  });
+  next();
+});
 
 app.get("/", (req, res) =>
   res.send(
@@ -34,30 +72,66 @@ app.route("/feeds/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
 
-app.post("/feeds", posting.any(), function (req, res) {
-  let data = {
-    username: req.body.username,
-    upload_date: req.body.upload_date,
-    caption: req.body.caption,
-    photo: req.body.photo,
-  };
-  let sql = "INSERT INTO feeds SET ?";
-  let query = connection.query(sql, data, (err, results) => {
-    if (err) {
-      console.log("error");
-      res.send({ result: "error" });
-    } else {
-      console.log("success");
-      res.send({ result: "success" });
-      res.redirect("/feeds");
-    }
-  });
+// app.post("/feeds", posting.any(), function (req, res) {
+//   let data = {
+//     username: req.body.username,
+//     upload_date: req.body.upload_date,
+//     caption: req.body.caption,
+//     photo: req.body.photo,
+//   };
+//   let sql = "INSERT INTO feeds SET ?";
+//   let query = connection.query(sql, data, (err, results) => {
+//     if (err) {
+//       console.log("error");
+//       res.send({ result: "error" });
+//     } else {
+//       console.log("success");
+//       res.send({ result: "success" });
+//       res.redirect("/feeds");
+//     }
+//   });
+// });
+
+app.post("/feeds", async (req, res, next) => {
+  try {
+    const myFile = req.file;
+    const imageUrl = await uploadImage(myFile);
+    let data = {
+      username: req.body.username,
+      upload_date: req.body.upload_date,
+      caption: req.body.caption,
+      photo: imageUrl,
+    };
+    let sql = "INSERT INTO feeds SET ?";
+    let query = connection.query(sql, data, (err, results) => {
+      if (err) {
+        console.log("error");
+        console.log(err);
+        res.send({ result: "error" });
+      } else {
+        console.log("success");
+        res.status(200).json({
+          result: "success",
+          message: "Upload was successful",
+          data: data,
+        });
+        // res.redirect("/feeds");
+      }
+    });
+  } catch (error) {
+    next(error);
+  }
 });
+
+// res.status(200).json({
+//   message: "Upload was successful",
+//   data: imageUrl,
+// });
 
 app.put("/feeds/:id", posting.any(), function (req, res) {
   var user_id = req.params.id;
@@ -77,7 +151,7 @@ app.put("/feeds/:id", posting.any(), function (req, res) {
         res.send({ result: "error" });
       } else {
         console.log("success");
-        res.redirect("/feeds");
+        // res.redirect("/feeds");
       }
     }
   );
@@ -91,7 +165,7 @@ app.delete("/feeds/:id", (req, res) => {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.redirect("/feeds");
+      // res.redirect("/feeds");
     }
   });
 });
@@ -113,7 +187,7 @@ app.route("/mountain_detail/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -124,6 +198,8 @@ app.post("/mountain_detail", posting.any(), function (req, res) {
     location: req.body.location,
     history: req.body.history,
     iconic_site: req.body.iconic_site,
+    elevation: req.body.elevation,
+    stars: req.body.stars,
   };
   let sql = "INSERT INTO mountain_detail SET ?";
   let query = connection.query(sql, data, (err, results) => {
@@ -133,7 +209,7 @@ app.post("/mountain_detail", posting.any(), function (req, res) {
     } else {
       console.log("success");
       res.send({ result: "success" });
-      res.redirect("/mountain_detail");
+      // res.redirect("/mountain_detail");
     }
   });
 });
@@ -153,7 +229,7 @@ app.post("/mountain_detail", function (req, res) {
     } else {
       console.log("success");
       res.send({ result: "success" });
-      res.redirect("/mountain_detail");
+      // res.redirect("/mountain_detail");
     }
   });
 });
@@ -176,7 +252,7 @@ app.route("/mountain_review/:id").get((req, res, next) => {
     (error, results, fields) => {
       if (error) throw error;
       console.log(results[0]);
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -196,7 +272,7 @@ app.post("/mountain_review", posting.any(), function (req, res) {
     } else {
       console.log("success");
       res.send({ result: "success" });
-      res.redirect("/mountain_review");
+      // res.redirect("/mountain_review");
     }
   });
 });
@@ -209,7 +285,7 @@ app.delete("/mountain_review/:id", (req, res) => {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.redirect("/mountain_review");
+      // res.redirect("/mountain_review");
     }
   });
 });
@@ -232,7 +308,7 @@ app.put("/mountain_review/:id", posting.any(), function (req, res) {
         res.send({ result: "error" });
       } else {
         console.log("success");
-        res.redirect("/mountain_review");
+        // res.redirect("/mountain_review");
       }
     }
   );
@@ -244,6 +320,7 @@ app.get("/users", (req, res) => {
     "SELECT * FROM `mountain`.`users`",
     (error, results, fields) => {
       if (error) throw error;
+      // console.log(results);
       res.json(results);
     }
   );
@@ -255,7 +332,7 @@ app.route("/users/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -277,7 +354,7 @@ app.post("/users", posting.any(), function (req, res) {
         result: "success",
         loginResult: data,
       });
-      res.redirect("/users");
+      // res.redirect("/users");
     }
   });
 });
@@ -290,7 +367,7 @@ app.delete("/users/:id", (req, res) => {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.redirect("/users");
+      // res.redirect("/users");
     }
   });
 });
@@ -312,7 +389,7 @@ app.put("/users/:id", posting.any(), function (req, res) {
         res.send({ result: "error" });
       } else {
         console.log("success");
-        res.redirect("/users");
+        // res.redirect("/users");
       }
     }
   );
@@ -371,7 +448,7 @@ app.route("/users_detail/:id").get((req, res, next) => {
     req.params.id,
     (error, results, fields) => {
       if (error) throw error;
-      res.json(results);
+      res.json(results[0]);
     }
   );
 });
@@ -391,7 +468,7 @@ app.post("/users_detail", posting.any(), function (req, res) {
     } else {
       console.log("success");
       res.send({ result: "success" });
-      res.redirect("/users_detail");
+      // res.redirect("/users_detail");
     }
   });
 });
@@ -404,7 +481,7 @@ app.delete("/users_detail/:id", (req, res) => {
       res.send({ result: "error" });
     } else {
       console.log("success");
-      res.redirect("/users_detail");
+      // res.redirect("/users_detail");
     }
   });
 });
@@ -427,7 +504,7 @@ app.put("/users_detail/:id", posting.any(), function (req, res) {
         res.send({ result: "error" });
       } else {
         console.log("success");
-        res.redirect("/users_detail");
+        // res.redirect("/users_detail");
       }
     }
   );
