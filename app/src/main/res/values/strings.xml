@@ -41,7 +41,7 @@
     <string name="someone_s_story_image">someone feeds</string>
     <string name="welcoming">Hi, %1s\nWelcome to Mountain App 👋</string>
     <string name="profile_picture_user">profile picture</string>
-    <string name="greeting">Hi 1%s</string>
+    <string name="greeting">Hi %1s</string>
     <string name="greeting2">Stay Healty</string>
     <string name="expandable_floating_action_button">floating icon</string>
     <string name="camera_x">CameraX</string>
@@ -54,6 +54,7 @@
     <string name="logout">Logout</string>
     <string name="scan_mount">Scan Mount</string>
     <string name="top_2_mount">Top 2 Mount</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="scan_from">Scan mount from:</string>
     <string name="mountain_has_been_identified">Mountain has been identified!</string>
@@ -61,8 +62,13 @@
     <string name="gunung_1s">Gunung %1s</string>
     <string name="result">Result:</string>
     <string name="go_back">Go Back</string>
-    <string name="upload_a_story">upload</string>
-    <string name="add_story">Add Photo</string>
-    <string name="preview_image_before_upload">preview image</string>
-    <string name="upload_image_from">Upload From</string>
+    <string name="mountain_detail">Mountain Detail</string>
+    <string name="history">history:</string>
+    <string name="detail_history">detail history</string>
+    <string name="elevation">elevation:</string>
+    <string name="detail_elevation">detail elevation</string>
+    <string name="add_feed">Add Feed</string>
+    <string name="preview_image">preview image</string>
+    <string name="upload_image_from">Upload Image From:</string>
+    <string name="upload_feed">Upload Feed</string>
 </resources>

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.mountainapp.data.local.UserPreference
+import com.bangkit.mountainapp.ui.detailmount.DetailMountViewModel
 import com.bangkit.mountainapp.ui.login.LoginViewModel
 import com.bangkit.mountainapp.ui.mainactivity.MainViewModel
 
@@ -28,6 +29,9 @@ class ViewModelFactory : ViewModelProvider.NewInstanceFactory {
             }
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 pref?.let { MainViewModel(it) } as T
+            }
+            modelClass.isAssignableFrom(DetailMountViewModel::class.java) -> {
+                pref?.let { DetailMountViewModel(it) } as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

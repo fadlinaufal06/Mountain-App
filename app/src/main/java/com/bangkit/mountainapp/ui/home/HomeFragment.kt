@@ -32,6 +32,7 @@ import com.bangkit.mountainapp.databinding.FragmentHomeBinding
 import com.bangkit.mountainapp.helper.setProfilePicture
 import com.bangkit.mountainapp.ml.ConvertedModelGunung2
 import com.bangkit.mountainapp.ui.*
+import com.bangkit.mountainapp.ui.detailmount.DetailMountActivity
 import com.bumptech.glide.Glide
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
@@ -156,29 +157,55 @@ class HomeFragment : Fragment() {
 
             }
         }
+        binding.apply {
+            tvMountainName1.text = "Tangkuban Perahu"
+            tvLoc1.text = "Jawa Barat"
+            Glide.with(requireActivity())
+                .load(R.drawable.tangkuban)
+                .error(R.mipmap.ic_launcher_round)
+                .into(imgTopMountain11)
 
-        viewModel.getTop2FavMount()
-
-        viewModel.responseGet2Fav.observe(viewLifecycleOwner) {
-            var i = 0
-            for (list2TopMount in it.listMountDetail) {
-                i++
-                if (i == 1) {
-                    binding.apply {
-                        tvMountainName1.text = list2TopMount.mountainName
-                        tvLoc1.text = list2TopMount.location
-                    }
-                } else if (i == 2) {
-                    binding.apply {
-                        tvMountainName2.text = list2TopMount.mountainName
-                        tvLoc2.text = list2TopMount.location
-                    }
-                } else if (i > 2) {
-                    Toast.makeText(requireActivity(), "Test sampe sini", Toast.LENGTH_SHORT).show()
-                    break
-                }
-            }
+            tvMountainName2.text = "Bromo"
+            tvLoc2.text = "Jawa Timur"
+            Glide.with(requireActivity())
+                .load(R.drawable.bromo)
+                .error(R.mipmap.ic_launcher_round)
+                .into(imgTopMountain1)
         }
+
+        binding.topOneMount.setOnClickListener{
+            val intent = Intent(it.context, DetailMountActivity::class.java)
+            intent.putExtra(DetailMountActivity.EXTRA_NAME, "Tangkuban Perahu")
+            startActivity(intent)
+        }
+
+        binding.topTwoMount.setOnClickListener{
+            val intent = Intent(it.context, DetailMountActivity::class.java)
+            intent.putExtra(DetailMountActivity.EXTRA_NAME, "Bromo")
+            startActivity(intent)
+        }
+//        viewModel.getTop2FavMount()
+
+//        viewModel.responseGet2Fav.observe(viewLifecycleOwner) {
+//            var i = 0
+//            for (list2TopMount in it.listMountDetail) {
+//                i++
+//                if (i == 1) {
+//                    binding.apply {
+//                        tvMountainName1.text = list2TopMount.mountainName
+//                        tvLoc1.text = list2TopMount.location
+//                    }
+//                } else if (i == 2) {
+//                    binding.apply {
+//                        tvMountainName2.text = list2TopMount.mountainName
+//                        tvLoc2.text = list2TopMount.location
+//                    }
+//                } else if (i > 2) {
+//                    Toast.makeText(requireActivity(), "Test sampe sini", Toast.LENGTH_SHORT).show()
+//                    break
+//                }
+//            }
+//        }
     }
 
     private fun startCameraX() {
@@ -270,7 +297,7 @@ class HomeFragment : Fragment() {
                 maxPos = i
             }
         }
-        val classes = arrayOf("Bromo", "Ijen", "Papandayan", "Kerinci", "Tangkuban Perahu")
+        val classes = arrayOf("Bromo", "Ijen", "Papandayan", "Rinjani", "Tangkuban Perahu")
         //        result.setText(classes[maxPos])
 //        Toast.makeText(requireActivity(), classes[maxPos], Toast.LENGTH_SHORT).show()
 
@@ -298,8 +325,12 @@ class HomeFragment : Fragment() {
         previewImageView.setImageBitmap(bitmap)
 
         button.setOnClickListener{
-            Toast.makeText(requireActivity(), "bisaa yeaeyyyy", Toast.LENGTH_SHORT).show()
+            val intent = Intent(it.context, DetailMountActivity::class.java)
+            intent.putExtra(DetailMountActivity.EXTRA_NAME, resultMount)
+            startActivity(intent)
+            dialog.dismiss()
         }
+
         back.setOnClickListener{
             dialog.dismiss()
         }

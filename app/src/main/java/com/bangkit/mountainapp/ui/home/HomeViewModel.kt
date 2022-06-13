@@ -11,6 +11,7 @@ import com.bangkit.mountainapp.data.remote.response.MountDetailItem
 import com.bangkit.mountainapp.data.remote.response.MountDetailResponse
 import com.bangkit.mountainapp.data.remote.response.RegisterResponse
 import com.bangkit.mountainapp.model.UserModel
+import com.bangkit.mountainapp.ui.detailmount.DetailMountViewModel
 import com.bangkit.mountainapp.ui.signup.SignupViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,10 +21,29 @@ class HomeViewModel : ViewModel() {
     private val _responseGet2Fav = MutableLiveData<MountDetailResponse>()
     val responseGet2Fav: LiveData<MountDetailResponse> = _responseGet2Fav
 
+    private val _responseMount = MutableLiveData<MountDetailItem>()
+    val responseMount: LiveData<MountDetailItem> = _responseMount
+
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
+
+    fun getMount(id: Int) {
+        val client = ApiConfig.getApiService().getMountId(id)
+        client.enqueue(object : Callback<MountDetailItem> {
+            override fun onResponse(
+                call: Call<MountDetailItem>,
+                response: Response<MountDetailItem>
+            ) {
+                _responseMount.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<MountDetailItem>, t: Throwable) {
+                Log.e(TAG, "onFailure: ${t.message.toString()}")
+            }
+        })
+    }
 
     fun getUser(pref: UserPreference): LiveData<UserModel> {
         return pref.getUser().asLiveData()
