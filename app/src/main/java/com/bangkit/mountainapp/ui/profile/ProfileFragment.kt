@@ -16,6 +16,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.bangkit.mountainapp.R
 import com.bangkit.mountainapp.data.local.UserPreference
 import com.bangkit.mountainapp.databinding.FragmentProfileBinding
+import com.bangkit.mountainapp.helper.setProfilePicture
+import com.bumptech.glide.Glide
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
@@ -27,6 +29,7 @@ class ProfileFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var preference: UserPreference
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,15 +49,35 @@ class ProfileFragment : Fragment() {
 
         binding.clickLogout.setOnClickListener {
             viewModel.logout(UserPreference.getInstance(requireActivity().dataStore))
-            Toast.makeText(activity, getString(R.string.logout_successful), Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.logout_successful), Toast.LENGTH_SHORT)
+                .show()
         }
 
         binding.clickYourAccount.setOnClickListener {
             Toast.makeText(activity, "Masuk ke edit account", Toast.LENGTH_SHORT).show()
         }
 
-        binding.clickLanguage.setOnClickListener{
+        binding.clickLanguage.setOnClickListener {
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+        }
+
+        preference = UserPreference.getInstance(requireContext().dataStore)
+
+        viewModel.getUser(preference).observe(viewLifecycleOwner) { user ->
+            if (user.isLogin) {
+                with(binding) {
+                    tvItemUsername.text = user.username
+                    emailUser.text = user.email
+                    val urlRandomAvatar = setProfilePicture(user.username)
+
+                    Glide.with(requireActivity())
+                        .load(urlRandomAvatar)
+                        .placeholder(R.drawable.ic_baseline_person_24)
+                        .error(R.mipmap.ic_launcher_round)
+                        .into(imgItemPhoto)
+                }
+
+            }
         }
     }
 

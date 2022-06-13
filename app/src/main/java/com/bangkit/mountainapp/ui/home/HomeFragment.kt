@@ -297,7 +297,7 @@ class HomeFragment : Fragment() {
                 maxPos = i
             }
         }
-        val classes = arrayOf("Bromo", "Ijen", "Papandayan", "Kerinci", "Tangkuban Perahu")
+        val classes = arrayOf("Bromo", "Ijen", "Papandayan", "Rinjani", "Tangkuban Perahu")
         //        result.setText(classes[maxPos])
 //        Toast.makeText(requireActivity(), classes[maxPos], Toast.LENGTH_SHORT).show()
 

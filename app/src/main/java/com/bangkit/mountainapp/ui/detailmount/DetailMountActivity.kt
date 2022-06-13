@@ -64,9 +64,9 @@ class DetailMountActivity : AppCompatActivity() {
                 viewModel.getMount(4)
                 mountPhoto = ContextCompat.getDrawable(this, R.drawable.papandayan)!!
             }
-            name.equals("Kerinci") -> {
+            name.equals("Rinjani") -> {
                 viewModel.getMount(5)
-                mountPhoto = ContextCompat.getDrawable(this, R.drawable.kerinci)!!
+                mountPhoto = ContextCompat.getDrawable(this, R.drawable.rinjani)!!
             }
             name.equals("Tangkuban Perahu") -> {
                 viewModel.getMount(1)

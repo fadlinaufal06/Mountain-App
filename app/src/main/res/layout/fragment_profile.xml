@@ -85,12 +85,12 @@
                 app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
-                android:id="@+id/role_user"
+                android:id="@+id/email_user"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="Student"
+                android:text="@string/placeholder_email"
                 android:textColor="@color/van_dyke_brown"
                 app:layout_constraintBottom_toBottomOf="@+id/img_item_photo"
                 app:layout_constraintStart_toEndOf="@+id/img_item_photo"
