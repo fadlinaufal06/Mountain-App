@@ -6,22 +6,13 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.bangkit.mountainapp.R
 import com.bangkit.mountainapp.databinding.ActivityFeedUploadBinding
-import com.bangkit.mountainapp.databinding.ActivityUploadBinding
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
 import java.io.File
-import com.bangkit.mountainapp.helper.Utils
-import okhttp3.RequestBody.Companion.asRequestBody
-import okhttp3.RequestBody.Companion.toRequestBody
 
 class FeedUploadActivity : AppCompatActivity() {
 

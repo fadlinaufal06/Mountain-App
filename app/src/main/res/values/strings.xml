@@ -67,4 +67,8 @@
     <string name="detail_history">detail history</string>
     <string name="elevation">elevation:</string>
     <string name="detail_elevation">detail elevation</string>
+    <string name="add_feed">Add Feed</string>
+    <string name="preview_image">preview image</string>
+    <string name="upload_image_from">Upload Image From:</string>
+    <string name="upload_feed">Upload Feed</string>
 </resources>

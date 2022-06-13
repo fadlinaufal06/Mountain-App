@@ -21,6 +21,10 @@
             android:parentActivityName=".ui.mainactivity.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
+
+        <activity
+            android:name=".ui.FeedUploadActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.CameraActivity"
             android:exported="false" />

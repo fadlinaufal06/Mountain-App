@@ -91,7 +91,6 @@ class DetailMountActivity : AppCompatActivity() {
                     .error(R.mipmap.ic_launcher_round)
                     .into(imgStoryDetail)
             }
-
         }
     }
 
