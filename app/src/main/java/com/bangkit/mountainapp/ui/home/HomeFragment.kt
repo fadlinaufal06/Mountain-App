@@ -32,6 +32,7 @@ import com.bangkit.mountainapp.databinding.FragmentHomeBinding
 import com.bangkit.mountainapp.helper.setProfilePicture
 import com.bangkit.mountainapp.ml.ConvertedModelGunung2
 import com.bangkit.mountainapp.ui.*
+import com.bangkit.mountainapp.ui.detailmount.DetailMountActivity
 import com.bumptech.glide.Glide
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
@@ -298,8 +299,12 @@ class HomeFragment : Fragment() {
         previewImageView.setImageBitmap(bitmap)
 
         button.setOnClickListener{
-            Toast.makeText(requireActivity(), "bisaa yeaeyyyy", Toast.LENGTH_SHORT).show()
+            val intent = Intent(it.context, DetailMountActivity::class.java)
+            intent.putExtra(DetailMountActivity.EXTRA_NAME, resultMount)
+            startActivity(intent)
+            dialog.dismiss()
         }
+
         back.setOnClickListener{
             dialog.dismiss()
         }

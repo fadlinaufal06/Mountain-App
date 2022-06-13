@@ -1,6 +1,7 @@
 package com.bangkit.mountainapp.data.remote.api
 
 import com.bangkit.mountainapp.data.remote.response.LoginResponse
+import com.bangkit.mountainapp.data.remote.response.MountDetailItem
 import com.bangkit.mountainapp.data.remote.response.MountDetailResponse
 import com.bangkit.mountainapp.data.remote.response.RegisterResponse
 import retrofit2.Call
@@ -25,4 +26,9 @@ interface ApiService {
 
     @GET("/mountain_detail")
     fun getTwoTopFavMount(): Call<MountDetailResponse>
+
+    @GET("/mountain_detail/{id}")
+    fun getMountId(
+        @Path("id") id:Int
+    ): Call<MountDetailItem>
 }

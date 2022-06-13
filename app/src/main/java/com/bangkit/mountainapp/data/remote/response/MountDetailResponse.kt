@@ -21,5 +21,11 @@ data class MountDetailItem(
 	val history: String,
 
 	@field:SerializedName("iconic_site")
-	val iconicSite: String
+	val iconic_site: String,
+
+	@field:SerializedName("elevation")
+	val elevation: String,
+
+	@field:SerializedName("stars")
+	val stars: Int
 )

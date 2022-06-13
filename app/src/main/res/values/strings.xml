@@ -62,4 +62,9 @@
     <string name="gunung_1s">Gunung %1s</string>
     <string name="result">Result:</string>
     <string name="go_back">Go Back</string>
+    <string name="mountain_detail">Mountain Detail</string>
+    <string name="history">history:</string>
+    <string name="detail_history">detail history</string>
+    <string name="elevation">elevation:</string>
+    <string name="detail_elevation">detail elevation</string>
 </resources>
