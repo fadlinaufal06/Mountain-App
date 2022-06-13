@@ -71,4 +71,37 @@
     <string name="preview_image">preview image</string>
     <string name="upload_image_from">Upload Image From:</string>
     <string name="upload_feed">Upload Feed</string>
+
+    <string name="upload_a_story">upload</string>
+    <string name="add_story">Add Photo</string>
+    <string name="preview_image_before_upload">preview image</string>
+
+
+    <string-array name="user_name_feeds">
+        <item>Yendra</item>
+        <item>Fadli</item>
+        <item>Handy</item>
+        <item>Ferdio</item>
+    </string-array>
+
+    <string-array name="gunung_description_feeds">
+        <item>Indahnya pemandangan</item>
+        <item>Pagi ini di rinjani</item>
+        <item>Kamu kapan kesini</item>
+        <item>Ayo ke ijen</item>
+    </string-array>
+
+    <string-array name="gunung_uploadedAt_feeds">
+        <item>12–06–2022</item>
+        <item>12–06–2022</item>
+        <item>12–06–2022</item>
+        <item>12–06–2022</item>
+    </string-array>
+
+    <integer-array name="gunung_photo_feeds">
+        <item>@drawable/bromo</item>
+        <item>@drawable/rinjani</item>
+        <item>@drawable/papandayan</item>
+        <item>@drawable/ijen</item>
+    </integer-array>
 </resources>

@@ -11,7 +11,10 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.mountainapp.R
+import com.bangkit.mountainapp.data.local.GunungFeeds
 import com.bangkit.mountainapp.data.local.UserPreference
 import com.bangkit.mountainapp.databinding.FragmentFeedsBinding
 import com.bangkit.mountainapp.helper.setProfilePicture
@@ -25,6 +28,8 @@ class FeedFragment : Fragment() {
 
     private var _binding: FragmentFeedsBinding? = null
     private lateinit var viewModel: FeedViewModel
+    private lateinit var rvGunungFeeds: RecyclerView
+    private val list = ArrayList<GunungFeeds>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -47,6 +52,15 @@ class FeedFragment : Fragment() {
             val intent = Intent(activity, FeedUploadActivity::class.java)
             startActivity(intent)
         }
+
+        rvGunungFeeds = binding.rvStory
+        rvGunungFeeds.setHasFixedSize(true)
+
+
+        list.addAll(listGunung)
+        showRecyclerList()
+        return root
+
 
         return root
     }
@@ -71,6 +85,27 @@ class FeedFragment : Fragment() {
             }
         }
     }
+
+    private val listGunung: ArrayList<GunungFeeds>
+        get() {
+            val dataName = resources.getStringArray(R.array.user_name_feeds)
+            val dataDescription = resources.getStringArray(R.array.gunung_description_feeds)
+            val dataPhoto = resources.obtainTypedArray(R.array.gunung_photo_feeds)
+            val dataUploaded = resources.getStringArray(R.array.gunung_uploadedAt_feeds)
+            val listGunung = ArrayList<GunungFeeds>()
+            for (i in dataName.indices) {
+                val hero = GunungFeeds(dataName[i],dataPhoto.getResourceId(i, -1), dataUploaded[i], dataDescription[i] )
+                listGunung.add(hero)
+            }
+            return listGunung
+        }
+
+    private fun showRecyclerList() {
+        binding.rvStory.layoutManager = LinearLayoutManager(context)
+        val listHeroAdapter = ListFeedAdapter(list)
+        binding.rvStory.adapter = listHeroAdapter
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -25,7 +25,8 @@
             android:layout_marginTop="8dp"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@tools:sample/avatars"
+            android:background="@drawable/mount_icon"/>
 
         <TextView
             android:id="@+id/tv_mountain_name_2"

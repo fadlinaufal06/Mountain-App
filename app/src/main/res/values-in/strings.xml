@@ -58,5 +58,50 @@
     <string name="upload_a_story">upload</string>
     <string name="add_story">Add Photo</string>
     <string name="preview_image_before_upload">preview image</string>
-    <string name="upload_image_from">Upload From</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="scan_from">Scan mount from:</string>
+    <string name="mountain_has_been_identified">Mountain has been identified!</string>
+    <string name="go_to_detail_mount">Go to Detail Mount</string>
+    <string name="gunung_1s">Gunung %1s</string>
+    <string name="result">Result:</string>
+    <string name="go_back">Go Back</string>
+    <string name="mountain_detail">Mountain Detail</string>
+    <string name="history">history:</string>
+    <string name="detail_history">detail history</string>
+    <string name="elevation">elevation:</string>
+    <string name="detail_elevation">detail elevation</string>
+    <string name="add_feed">Add Feed</string>
+    <string name="preview_image">preview image</string>
+    <string name="upload_image_from">Upload Image From:</string>
+    <string name="upload_feed">Upload Feed</string>
+
+    <string-array name="user_name_feeds">
+        <item>Yendra</item>
+        <item>Fadli</item>
+        <item>Handy</item>
+        <item>Ferdio</item>
+    </string-array>
+
+    <string-array name="gunung_description_feeds">
+        <item>Indahnya pemandangan</item>
+        <item>Pagi ini di rinjani</item>
+        <item>Kamu kapan kesini</item>
+        <item>Ayo ke ijen</item>
+    </string-array>
+
+    <string-array name="gunung_uploadedAt_feeds">
+        <item>12–06–2022</item>
+        <item>12–06–2022</item>
+        <item>12–06–2022</item>
+        <item>12–06–2022</item>
+    </string-array>
+
+    <integer-array name="gunung_photo_feeds">
+        <item>@drawable/bromo</item>
+        <item>@drawable/rinjani</item>
+        <item>@drawable/papandayan</item>
+        <item>@drawable/ijen</item>
+    </integer-array>
 </resources>
